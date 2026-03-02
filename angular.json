@@ -1,74 +1,91 @@
 {
-  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1,
-  "cli": {
-    "packageManager": "npm",
-    "analytics": false
-  },
-  "newProjectRoot": "projects",
-  "projects": {
-    "hermes-front-end": {
-      "projectType": "application",
-      "schematics": {},
-      "root": "",
-      "sourceRoot": "src",
-      "prefix": "app",
-      "architect": {
-        "build": {
-          "builder": "@angular/build:application",
-          "options": {
-            "browser": "src/main.ts",
-            "tsConfig": "tsconfig.app.json",
-            "assets": [
-              {
-                "glob": "**/*",
-                "input": "public"
-              }
-            ],
-            "styles": [
-              "src/styles.css"
-            ]
-          },
-          "configurations": {
-            "production": {
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "1MB"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "4kB",
-                  "maximumError": "8kB"
-                }
-              ],
-              "outputHashing": "all"
-            },
-            "development": {
-              "optimization": false,
-              "extractLicenses": false,
-              "sourceMap": true
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "serve": {
-          "builder": "@angular/build:dev-server",
-          "configurations": {
-            "production": {
-              "buildTarget": "hermes-front-end:build:production"
-            },
-            "development": {
-              "buildTarget": "hermes-front-end:build:development"
-            }
-          },
-          "defaultConfiguration": "development"
-        },
-        "test": {
-          "builder": "@angular/build:unit-test"
-        }
-      }
-    }
-  }
+     "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+     "version": 1,
+     "cli": {
+          "packageManager": "npm",
+          "analytics": false
+     },
+     "newProjectRoot": "projects",
+     "projects": {
+          "hermes-front-end": {
+               "projectType": "application",
+               "schematics": {},
+               "root": "",
+               "sourceRoot": "src",
+               "prefix": "app",
+               "architect": {
+                    "build": {
+                         "builder": "@angular/build:application",
+                         "options": {
+                              "browser": "src/main.ts",
+                              "tsConfig": "tsconfig.app.json",
+                              "assets": [
+                                   {
+                                        "glob": "**/*",
+                                        "input": "public"
+                                   }
+                              ],
+                              "styles": ["src/styles.css"]
+                         },
+                         "configurations": {
+                              "production": {
+                                   "budgets": [
+                                        {
+                                             "type": "initial",
+                                             "maximumWarning": "500kB",
+                                             "maximumError": "1MB"
+                                        },
+                                        {
+                                             "type": "anyComponentStyle",
+                                             "maximumWarning": "4kB",
+                                             "maximumError": "8kB"
+                                        }
+                                   ],
+                                   "outputHashing": "all",
+                                   "optimization": true,
+                                   "define": {
+                                        "NG_APP_PRODUCTION": "true",
+                                        "NG_APP_FIREBASE_API_KEY": "process.env.NG_APP_FIREBASE_API_KEY",
+                                        "NG_APP_FIREBASE_AUTH_DOMAIN": "process.env.NG_APP_FIREBASE_AUTH_DOMAIN",
+                                        "NG_APP_FIREBASE_PROJECT_ID": "process.env.NG_APP_FIREBASE_PROJECT_ID",
+                                        "NG_APP_FIREBASE_STORAGE_BUCKET": "process.env.NG_APP_FIREBASE_STORAGE_BUCKET",
+                                        "NG_APP_FIREBASE_MESSAGING_SENDER_ID": "process.env.NG_APP_FIREBASE_MESSAGING_SENDER_ID",
+                                        "NG_APP_FIREBASE_APP_ID": "process.env.NG_APP_FIREBASE_APP_ID"
+                                   }
+                              },
+                              "development": {
+                                   "optimization": false,
+                                   "extractLicenses": false,
+                                   "sourceMap": true,
+                                   "define": {
+                                        "NG_APP_PRODUCTION": "false",
+                                        "NG_APP_FIREBASE_API_KEY": "\"AIzaSyDKyEd6WPb3KUbvZX5JemQBYK1w2KYX6d4\"",
+                                        "NG_APP_FIREBASE_AUTH_DOMAIN": "\"hermes-front-end-dev.firebaseapp.com\"",
+                                        "NG_APP_FIREBASE_PROJECT_ID": "\"hermes-front-end-dev\"",
+                                        "NG_APP_FIREBASE_STORAGE_BUCKET": "\"hermes-front-end-dev.firebasestorage.app\"",
+                                        "NG_APP_FIREBASE_MESSAGING_SENDER_ID": "\"440766855630\"",
+                                        "NG_APP_FIREBASE_APP_ID": "\"1:440766855630:web:983ea1e7769613b6ed939f\""
+                                   }
+                              }
+                         },
+                         "defaultConfiguration": "development"
+                    },
+                    "serve": {
+                         "builder": "@angular/build:dev-server",
+                         "configurations": {
+                              "production": {
+                                   "buildTarget": "hermes-front-end:build:production"
+                              },
+                              "development": {
+                                   "buildTarget": "hermes-front-end:build:development"
+                              }
+                         },
+                         "defaultConfiguration": "development"
+                    },
+                    "test": {
+                         "builder": "@angular/build:unit-test"
+                    }
+               }
+          }
+     }
 }
