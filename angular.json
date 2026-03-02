@@ -17,13 +17,11 @@
                     "build": {
                          "builder": "@angular/build:application",
                          "options": {
+                              "outputPath": "dist/hermes-front-end",
                               "browser": "src/main.ts",
                               "tsConfig": "tsconfig.app.json",
                               "assets": [
-                                   {
-                                        "glob": "**/*",
-                                        "input": "public"
-                                   }
+                                   "src/favicon.ico"
                               ],
                               "styles": ["src/styles.css"]
                          },
@@ -62,7 +60,7 @@
                                         "NG_APP_FIREBASE_API_KEY": "\"AIzaSyDKyEd6WPb3KUbvZX5JemQBYK1w2KYX6d4\"",
                                         "NG_APP_FIREBASE_AUTH_DOMAIN": "\"hermes-front-end-dev.firebaseapp.com\"",
                                         "NG_APP_FIREBASE_PROJECT_ID": "\"hermes-front-end-dev\"",
-                                        "NG_APP_FIREBASE_STORAGE_BUCKET": "\"hermes-front-end-dev.firebasestorage.app\"",
+                                        "NG_APP_FIREBASE_STORAGE_BUCKET": "\"hermes-front-end-dev.appspot.com\"",
                                         "NG_APP_FIREBASE_MESSAGING_SENDER_ID": "\"440766855630\"",
                                         "NG_APP_FIREBASE_APP_ID": "\"1:440766855630:web:983ea1e7769613b6ed939f\""
                                    }
