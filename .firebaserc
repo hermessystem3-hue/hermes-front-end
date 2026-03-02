@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "hermes-d0cae"
+    "default": "hermes-d0cae",
+    "dev": "hermes-front-end-dev"
   }
 }
