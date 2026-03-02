@@ -48,18 +48,27 @@ Esta seção documenta as decisões de alto nível que definem o projeto.
 
 ---
 
-## Plano de Ação Atual
+## Plano de Ação
 
-A fase atual consiste em estabelecer a fundação sólida da aplicação antes de desenvolver qualquer funcionalidade.
+### Fase 1: Configuração da Arquitetura e UI de Autenticação (Concluída)
 
-**Fase 1: Configuração da Arquitetura Base**
+1.  **Validação da Arquitetura**: Confirmado e documentado as diretrizes arquiteturais.
+2.  **Gerar Estrutura de Pastas**: Criada a estrutura de diretórios (`core`, `shared`, `features`, `layout`).
+3.  **Configurar Firebase**: Integrado o Firebase SDK ao projeto Angular.
+4.  **Criar Layout Base**: Desenvolvido os componentes básicos de layout.
+5.  **Gerar Componentes de Autenticação**: Criados os componentes `login` e `register`.
+6.  **Configurar Roteamento de Autenticação**: Definidas as rotas para `/login` and `/register`.
+7.  **Estilização Inicial**: Aplicado um estilo global básico para as telas de formulário.
+8.  **Build de Verificação**: Executado um `ng build` para garantir a integridade da configuração.
 
-1.  **Validação da Arquitetura**: Confirmar e documentar as diretrizes arquiteturais (Concluído).
-2.  **Gerar Estrutura de Pastas**: Criar a estrutura de diretórios (`core`, `shared`, `features`, `layout`) conforme o design definido.
-3.  **Configurar Firebase**: Integrar o Firebase SDK ao projeto Angular.
-4.  **Criar `AuthService`**: Implementar o serviço central de autenticação para interagir com o Firebase Auth.
-5.  **Criar Layout Base**: Desenvolver os componentes básicos de layout da aplicação (ex: main layout com um placeholder para o conteúdo).
-6.  **Configurar Roteamento**: Estabelecer as rotas principais da aplicação, preparando o terreno para o lazy loading das features.
-7.  **Build de Verificação**: Executar um `ng build` para garantir que toda a configuração inicial está correta e livre de erros.
+### Fase 2: Implementação da Lógica de Autenticação
 
-Aguardando a ordem para iniciar a execução da Fase 1.
+A próxima fase focará em dar vida aos formulários de login e registro, implementando a lógica de negócio e a comunicação com o serviço de autenticação.
+
+1.  **Criar `AuthService`**: Implementar o serviço central de autenticação para interagir com o Firebase Auth, contendo os métodos `login()` e `register()`.
+2.  **Implementar Formulários Reativos**: Converter os formulários HTML estáticos em `login` e `register` para formulários reativos do Angular.
+3.  **Conectar Componentes ao Serviço**: Chamar os métodos do `AuthService` a partir dos componentes `login` e `register` ao submeter os formulários.
+4.  **Gerenciamento de Estado do Usuário**: Utilizar signals no `AuthService` para gerenciar o estado de autenticação do usuário (logado/deslogado).
+5.  **Feedback ao Usuário**: Implementar feedback visual para o usuário durante e após as operações de login/registro (ex: mensagens de erro ou sucesso).
+
+Aguardando a ordem para iniciar a execução da Fase 2.
