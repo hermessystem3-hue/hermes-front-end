@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist/hermes-front-end",
+    "public": "dist/hermes-front-end/browser",
     "ignore": [
       "firebase.json",
       "**/.*",
